@@ -17,6 +17,10 @@ const App = () => {
   const [totalAlbums, setTotalAlbums] = useState(0);
   const [yearsActive, setYearsActive] = useState(0);
   const [totalTracks, setTotalTracks] = useState(0);
+  const [searchInput, setSearchInput] = useState('');
+  const [selectedAlbum, setSelectedAlbum] = useState('');
+  const [filteredTracks, setFilteredTracks] = useState([]);
+
 
   useEffect(() => {
     if (!token) {
@@ -109,7 +113,20 @@ const App = () => {
       allTracksList = [...allTracksList, ...tracks];
     }
     setAllTracks(allTracksList);
+    filterTracks(allTracksList, searchInput, selectedAlbum); 
   };
+
+  const filterTracks = (tracks, search, album) => {
+    const results = tracks.filter((track) =>
+      track.name.toLowerCase().includes(search.toLowerCase()) &&
+      (album === '' || track.album.name === album)
+    );
+    setFilteredTracks(results);
+  };
+
+  useEffect(() => {
+    filterTracks(allTracks, searchInput, selectedAlbum);
+  }, [searchInput, selectedAlbum, allTracks]);
 
   return (
     <div className="App">
@@ -124,16 +141,32 @@ const App = () => {
           <Card title="Total Tracks" value={totalTracks} />
           <Card title="Years Active" value={yearsActive} />
           </div>
-          <div className="table-container">
-    <List tracks={allTracks} />
-  </div>
+          <div className="filters">
+            <input
+              type="text"
+              placeholder="Search for a track..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+            <select
+              value={selectedAlbum}
+              onChange={(e) => setSelectedAlbum(e.target.value)}
+            >
+              <option value="">All Albums</option>
+              {albumsData.map(album => (
+                <option key={album.id} value={album.name}>
+                  {album.name}
+                </option>
+              ))}
+            </select>
 
-          </div>
+            <List tracks={filteredTracks} />
+
         </div>
       </div>
-
-      );
-    };
-    
+    </div>
+  </div>
+  );
+};
 
 export default App;
