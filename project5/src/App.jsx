@@ -5,6 +5,9 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import List from "./components/List";
+import TracksChart from "./components/TracksChart";
+import AlbumChart from "./components/AlbumChart";
+
 
 const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
 const CLIENT_SECRET = import.meta.env.VITE_APP_CLIENT_SECRET;
@@ -20,7 +23,7 @@ const App = () => {
   const [searchInput, setSearchInput] = useState('');
   const [selectedAlbum, setSelectedAlbum] = useState('');
   const [filteredTracks, setFilteredTracks] = useState([]);
-
+  const [albumChartDetails, setAlbumChartDetails] = useState([]);
 
   useEffect(() => {
     if (!token) {
@@ -54,7 +57,14 @@ const App = () => {
         },
       }
     );
-    setAlbumsData(response.data.items);
+    
+    const getChartDetails = response.data.items.map((album) => ({
+      name: album.name,
+      release_year: album.release_date.split("-")[0],
+      total_tracks: album.total_tracks,
+    }));
+    setAlbumChartDetails(getChartDetails);  
+    setAlbumsData(response.data.items);    
   };
 
   const fetchTracksForAlbum = async (album_id, token, album) => {
@@ -113,7 +123,7 @@ const App = () => {
       allTracksList = [...allTracksList, ...tracks];
     }
     setAllTracks(allTracksList);
-    filterTracks(allTracksList, searchInput, selectedAlbum); 
+    filterTracks(allTracksList, searchInput, selectedAlbum);
   };
 
   const filterTracks = (tracks, search, album) => {
@@ -130,42 +140,39 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="container">
-        <div className="sidebar">
-            <Header />  
-            <Navbar />
-        </div>
-        <div className="data-container">
-          <div className="card-container">
-          <Card title="Total Albums" value={totalAlbums} />
-          <Card title="Total Tracks" value={totalTracks} />
-          <Card title="Years Active" value={yearsActive} />
-          </div>
-          <div className="filters">
-            <input
-              type="text"
-              placeholder="Search for a track..."
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
-            <select
-              value={selectedAlbum}
-              onChange={(e) => setSelectedAlbum(e.target.value)}
-            >
-              <option value="">All Albums</option>
-              {albumsData.map(album => (
-                <option key={album.id} value={album.name}>
-                  {album.name}
-                </option>
-              ))}
-            </select>
+      <div className="card-container">
+        <Card title="Total Albums" value={totalAlbums} />
+        <Card title="Total Tracks" value={totalTracks} />
+        <Card title="Years Active" value={yearsActive} />
+      </div>
 
-            <List tracks={filteredTracks} />
-
-        </div>
+      <div className="filters">
+        <input
+          type="text"
+          placeholder="Search for a track..."
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
+        <select
+          value={selectedAlbum}
+          onChange={(e) => setSelectedAlbum(e.target.value)}
+        >
+          <option value="">All Albums</option>
+          {albumsData.map(album => (
+            <option key={album.id} value={album.name}>
+              {album.name}
+            </option>
+          ))}
+        </select>
+          <div className="list-chart-container">
+        <List tracks={filteredTracks} />
+        <div className="chart-container">
+      <div className="tracks-chart"><TracksChart albumChartDetails={albumChartDetails} />
+      </div> 
+      <div className="album-chart"><AlbumChart albumChartDetails={albumChartDetails} /></div>
+</div></div>
       </div>
     </div>
-  </div>
   );
 };
 

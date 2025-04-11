@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 
 const List = ({ tracks }) => {
   return (
@@ -10,6 +11,7 @@ const List = ({ tracks }) => {
             <th>Title</th>
             <th>Album</th>
             <th>Release Date</th>
+            <th>Details</th> 
           </tr>
         </thead>
         <tbody>
@@ -19,11 +21,16 @@ const List = ({ tracks }) => {
                 <td>{track.name}</td>
                 <td>{track.album.name}</td>
                 <td>{track.album.release_date.split("-")[0]}</td>
+                <td>
+                  <Link to={`/trackview/${track.id}`} style={{  textDecoration: 'none' }}>
+                  🔗
+                  </Link>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="3">Loading...</td>
+              <td colSpan="4">Loading...</td>
             </tr>
           )}
         </tbody>
