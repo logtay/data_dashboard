@@ -4,7 +4,7 @@ Submitted by: **Taylor Femat**
 
 This web app: **Uses the Spotify Web API to fetch information about the rock band Arctic Monkeys. It provides them with a listing of released tracks, which they can filter or click on to view further details such as track duration and track popularity. On the main page, they can also view visualizations of the data. There is an About Page included that tells the user a bit more about where the data comes from and how they might interpret it.**
 
-Time spent: **12** hours spent in total
+Time spent: **14** hours spent in total
 
 ## Required Features
 
@@ -38,7 +38,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/logtay/web102_project5/blob/main/Project6Walkthrough.gif' title='Video Walkthrough' width='700' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [Kap](https://getkap.co/) for macOS
@@ -46,7 +46,7 @@ GIF created with [Kap](https://getkap.co/) for macOS
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was hard for me to estimate how much time I spent on this project. I spent a lot of time tweaking my charts and changing my ideas about what data I wanted to present and what I thought would be "interesting". For me, the charts was the most challenging, because I had never worked with them before. I felt that I had so much data to choose from that it was hard to settle on something. Setting up the routes was relatively easy and straightforward. My only setbacks were issues with relative paths, but the lab for this week was really helpful on all fronts. It translated really well to what I wanted to do. 
 
 ## License
 
