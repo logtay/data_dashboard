@@ -1,3 +1,8 @@
+.App {
+  transform: scale(1.05);
+  transform-origin: top left;
+}
+
 .container {
   display: flex;
 
@@ -7,6 +12,28 @@
   box-shadow: 6px 0 0 #855b1b;
   border-right: 6px solid #ac742a;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2); 
+}
+
+.artist-search input[type="text"] {
+  width: 20%;
+  padding: 10px;
+  margin: 5px 0;
+  margin-right: 2%;
+  margin-top: 4%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: x-large;
+}
+
+.artist-search button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ac742a;
+  color: white;
+  font-size: x-large;
+  cursor: pointer;
+  margin-left: -20px;
 }
 
 .header {
@@ -113,7 +140,7 @@
   padding: 10px;  
 }
 .filters input[type="text"] {
-  width: 15%;
+  width: 20%;
   padding: 10px;
   margin: 5px 0;
   margin-right: 2%;
@@ -121,7 +148,7 @@
   border: 1px solid #ccc;
   font-size: large;
 }
-.filters select{
+select{
   width: 15%;
   padding: 10px;
   margin: 5px 0;
@@ -138,14 +165,15 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  font-size: x-large;
 }
 .chart-container {
   flex-direction: column; 
 }
 
 .tracks-chart, .album-chart {
-  margin-top: 17%;
-  padding: 20px;
+  margin-top: 25%;
+  padding: 10px auto;
   justify-content:center;
   align-items: center;
   width: auto;
@@ -183,7 +211,8 @@
 .track-image {
   width: 40%;                
   height: auto;
-  margin-right: 20px;                
+  margin-right: 20px; 
+  border-radius: 4px;               
 }
 
 .track-info {
@@ -200,7 +229,7 @@ p {
   display: flex;
   align-items: center; 
   justify-content: right;   
-  justify-items: right;   
+  justify-items: right;  
 }
 .about-container {
   display: flex;  
@@ -225,4 +254,9 @@ p {
   margin: 10px 0; 
   text-align: left; 
   font-size: x-large;            
+}
+.artist-search h1 {
+  color:#efefef;
+  font-size: 50px;
+  margin-bottom: -40px;
 }
