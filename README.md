@@ -1,12 +1,75 @@
-# React + Vite
+# Project Title - Data Dashboard (Spotify)
+This project is a web-based data dashboard that uses the Spotify Web API to fetch information about a chosen artist. Users can view a listing of released tracks, filter through them, and click on individual tracks to see detailed information such as duration and popularity. The dashboard also includes interactive data visualizations, as well as an About Page explaining the source of the data and how to interpret it.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Search for artist and retrieve catalog data from Spotify
+- Dynamically updated list of tracks with filtering capability
+- Separate detail view with information about individual tracks
+- Data visualizations to provide more in-depth analysis of artist's releases
+- About Page provides context and details for dashboard
 
-Currently, two official plugins are available:
+## Getting Started
+### Prerequisites 
+- Node.js
+- Spotify Developer Account
+- Spotify API Key
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
+1. Clone the repository
+```
+git clone https://github.com/logtay/data_dashboard.git
+cd data_dashboard
+```
 
-## Expanding the ESLint configuration
+2. Install dependencies
+```
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Create `.env` and add Spotify Developer credentials
+```
+VITE_APP_CLIENT_ID="your_client_id"
+VITE_APP_CLIENT_SECRET="your_client_secret"
+```
+
+4. Start the server
+```
+npm run dev
+```
+
+5. View the app in your browser
+```
+http://localhost:5173
+```
+
+## Usage
+
+Run the app in your browser:
+
+<details>
+<summary>Sample Actions</summary>
+
+- Search and Explore Artists:
+  - Enter an artist name to fetch their catalog information
+  - Scroll through a track list of their catalog or use filtering options to narrow list 
+  - Select `🔗` to view more information about a specific track
+  - Click track name to open in Spotify
+
+- Detail View:
+  - View more detailed information about track (duration, popularity, release year etc.)
+  - View album art for selected track 
+  - Each detail page has its own unique URL
+
+- Data Visualizations:
+  - View overall summary statistics at top of page
+  - Chart visualizations give more in-depth analysis of artist's work
+    - Total Tracks per Album, Time Between Releases
+ 
+- About Page:
+  - Learn background information about the development of this project
+  - View suggestions on how to interpret the data 
+</details>
+
+## Walkthrough
+gif or video here
+
