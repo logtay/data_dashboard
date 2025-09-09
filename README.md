@@ -71,5 +71,4 @@ Run the app in your browser:
 </details>
 
 ## Walkthrough
-gif or video here
-
+<img src='https://github.com/logtay/data_dashboard/blob/main/dashboardGIF.gif?raw=true' title='Dashboard Video Walkthrough' width='800' alt='Dashboard Video Walkthrough' />
