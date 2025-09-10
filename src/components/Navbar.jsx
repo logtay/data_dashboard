@@ -11,7 +11,7 @@ const Navbar = () => {
         <Link to="/about" style={{ color: "#1e1e1e", textDecoration: 'none' }}><h1>About</h1></Link>
       </ul>
         <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
-        <img src={spotifyLogo} alt="Spotify Logo" style={{ height: "70px", marginTop: "100px" }} />
+        <img src={spotifyLogo} alt="Spotify Logo" style={{ height: "80px", marginTop: "100px" }} />
       </a>
     </div>
   );
