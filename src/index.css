@@ -51,10 +51,11 @@
 .header h1 {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   padding-top: 10%;
+  font-size: 35px;
 }
 .header p{
   margin-top: 2%;
-  font-size: x-large;
+  font-size: larger;
 }
 
 .navigation {

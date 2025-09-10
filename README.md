@@ -70,6 +70,4 @@ Run the app in your browser:
   - View suggestions on how to interpret the data 
 </details>
 
-## Walkthrough
-gif or video here
 
