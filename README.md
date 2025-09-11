@@ -70,4 +70,7 @@ Run the app in your browser:
   - View suggestions on how to interpret the data 
 </details>
 
+## Walkthrough
+<img src='https://github.com/logtay/data_dashboard/blob/main/DashDemo.gif?raw=true' title='Dashboard Video Walkthrough' width='800' alt='Dashboard Video Walkthrough' />
+
 
